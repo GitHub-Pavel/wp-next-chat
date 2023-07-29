@@ -1,2 +1,2 @@
-# wp-next-chat
+# WP Chat
 Chat on Wordpress and Next.js
