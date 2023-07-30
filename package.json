@@ -1,0 +1,11 @@
+{
+    "name": "wp-next-chat",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev-dotenv": "code . && docker-compose up & yarn --cwd $CLIENT_PATH dev",
+        "cl-dotenv": "yarn --cwd $CLIENT_PATH",
+        "dev": "dotenv -- yarn dev-dotenv",
+        "cl": "dotenv -- yarn cl-dotenv"
+    }
+}

@@ -1,0 +1,10 @@
+.yarn/
+
+server/plugins/
+server/themes/twentytwentyone
+server/themes/twentytwentytwo
+server/themes/twentytwentythree
+server/themes/index.php
+
+.env.local
+.pnp.cjs

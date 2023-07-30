@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    working_dir: /var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: pavel
+      WORDPRESS_DB_NAME: quietwheels
+      WORDPRESS_DB_PASSWORD: Car58it91res235
+    volumes:
+      - wordpress:/var/www/html
+      - ./server/.htaccess:/var/www/html/.htaccess
+      - ./server/themes:/var/www/html/wp-content/themes
+      - ./server/plugins:/var/www/html/wp-content/plugins
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_USER=pavel
+      - PMA_PASSWORD=Car58it91res235
+    volumes:
+      - phpmyadmin:/var/lib/phpmyadmin
+      
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_USER: pavel
+      MYSQL_DATABASE: quietwheels
+      MYSQL_PASSWORD: Car58it91res235
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  phpmyadmin:
+  wordpress:
+  db:
